@@ -63,6 +63,69 @@
 | `--radius-lg` | 24px | 大容器 |
 | `--radius-full` | 9999px | 圆形标签 |
 
+## 视觉层次 Token（深色风格 v2，提升质感关键）
+
+### 阴影阶梯
+
+| Token | 值 | 用途 |
+|-------|----|------|
+| `--shadow-sm` | `0 4px 12px rgba(0,0,0,0.25)` | 小浮层 |
+| `--shadow-md` | `0 12px 40px rgba(0,0,0,0.35)` | 常规玻璃卡片 |
+| `--shadow-lg` | `0 18px 50px rgba(0,0,0,0.45)` | 中心徽章/重点元素 |
+| `--glow-accent` | `0 0 14px rgba(255,45,85,0.55)` | 红色强调发光 |
+
+### 渐变背景方案
+
+| Token | 值 | 用途 |
+|-------|----|------|
+| `--grad-bg` | `linear-gradient(160deg, #0d1330, #1b2a5e 55%, #22316b)` | 深色风格页面背景 |
+| `--grad-accent` | `linear-gradient(135deg, #ff2d55, #ff5f8a 55%, #ff8fa8)` | 中心徽章/重点胶囊 |
+| `--grad-cyan` | `linear-gradient(135deg, #36d6ff, #1f9dff)` | 蓝色编号/强调块 |
+| `--grad-titlebar` | `linear-gradient(180deg, #ff6384, #ff2d55)` | 标题左侧竖条 |
+
+### 玻璃拟态 Token
+
+| Token | 值 | 用途 |
+|-------|----|------|
+| `--glass-bg` | `rgba(255,255,255,0.05)` | 玻璃卡片底色 |
+| `--glass-brd` | `rgba(255,255,255,0.14)` | 玻璃卡片边框 |
+| `--glass-red` | `rgba(255,45,85,0.08)` + 红边框 | 重点强调卡片 |
+| `--glass-cy` | `rgba(54,214,255,0.08)` + 青边框 | 冷色调卡片 |
+
+### 编号锚点（视觉抓手）
+
+| Token | 值 | 用途 |
+|-------|----|------|
+| `--num-red` | 红渐变底 + 白字 + 红色发光 | 步骤编号/章节锚点 |
+| `--num-cyan` | 青渐变底 + 白字 + 青色发光 | 冷色调编号 |
+| `--num-size` | 46×46px，圆角 14px | 标准编号方块 |
+
+### 光斑装饰（背景层次）
+
+```css
+/* 背景光斑 + 网格，制造空间纵深感 */
+body::before {
+  background:
+    radial-gradient(520px 380px at 86% 8%, rgba(255,45,85,0.22), transparent 65%),
+    radial-gradient(560px 420px at 8% 92%, rgba(54,214,255,0.16), transparent 65%);
+}
+body::after {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+```
+
+### 高对比色参考（深色底文字）
+
+| 文字用途 | 值 | 对比度 |
+|---------|----|--------|
+| 主标题 | `#FFFFFF` | ~12:1 AAA |
+| 次要文字 | `rgba(255,255,255,0.82)` | ~8:1 AAA |
+| 强调青色 | `#45d8ff` | ~7:1 AAA |
+| 底部说明 | `rgba(255,255,255,0.55)` | ~5:1 AA |
+
 ## CSS 变量模板
 
 ```css
